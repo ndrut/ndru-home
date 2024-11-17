@@ -1,61 +1,265 @@
-body {
-  font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #232324;
+  color: #acacac;
+  font-family: 'Audiowide', sans-serif;
 }
 
 a {
-  margin-right: 1rem;
+  text-decoration: none;
 }
 
-main {
+.full-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.creative-name {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 24rem;
+  line-height: 1;
   text-align: center;
-  padding: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.light-gray {
+  color: #838485;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  animation-delay: 0; /* Light-gray appears 0.5s after page load */
+}
+
+.dark-gray {
+  color: #393a3b;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s; /* Dark-gray appears 1s after light-gray */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.dns-page {
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.back-arrow {
+  position: sticky;
+  top: 2rem;
+  font-size: 2rem;
+  color: #acacac;
+  transition: color 0.3s ease;
+  margin-right: 2rem;
+}
+
+.back-arrow:hover {
+  color: #ffffff;
+}
+
+.dns-container {
+  max-width: 800px;
+  width: 100%;
   margin: 0 auto;
+  padding: 2rem;
 }
 
-h1 {
-  color: #335d92;
-  text-transform: uppercase;
-  font-size: 4rem;
-  font-weight: 100;
-  line-height: 1.1;
-  margin: 4rem auto;
-  max-width: 14rem;
+.dns-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
 }
 
-p {
-  max-width: 14rem;
-  margin: 2rem auto;
-  line-height: 1.35;
+.dns-form {
+  margin-bottom: 2rem;
 }
 
-@media (min-width: 480px) {
-  h1 {
-    max-width: none;
-  }
-
-  p {
-    max-width: none;
-  }
+.form-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.increment {
+.dns-input, .dns-select {
+  padding: 0.75rem;
+  border: 1px solid #3a3a3b;
+  background-color: #2a2a2b;
+  color: #acacac;
+  border-radius: 4px;
   font-family: inherit;
-  font-size: inherit;
-  padding: 1em 2em;
-  color: #335d92;
-  background-color: rgba(68, 107, 158, 0.1);
-  border-radius: 2em;
-  border: 2px solid rgba(68, 107, 158, 0);
-  outline: none;
-  width: 200px;
-  font-variant-numeric: tabular-nums;
+}
+
+.dns-input {
+  flex: 1;
+}
+
+.dns-select {
+  width: 120px;
+}
+
+.dns-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3a3a3b;
+  color: #acacac;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
 }
 
-.increment:focus {
-  border: 2px solid #335d92;
+.dns-button:hover:not(:disabled) {
+  background-color: #4a4a4b;
+  color: #ffffff;
 }
 
-.increment:active {
-  background-color: rgba(68, 107, 158, 0.2);
+.dns-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.dns-error {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+}
+
+.dns-results {
+  background-color: #2a2a2b;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.dns-results h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.results-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.result-item {
+  background-color: #3a3a3b;
+  padding: 1rem;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.result-type, .result-ttl {
+  color: #8a8a8a;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #2a2a2b;
+  border-radius: 3px;
+}
+
+.result-data {
+  word-break: break-all;
+  font-family: monospace;
+}
+
+.dns-status {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dns-status-success {
+  background-color: rgba(72, 187, 120, 0.1);
+  color: #48bb78;
+}
+
+.dns-status-error {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+}
+
+.dns-status-code {
+  font-family: monospace;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.dns-status-message {
+  flex: 1;
+}
+
+.dns-question {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #2a2a2b;
+  border-radius: 4px;
+}
+
+.question-label {
+  color: #8a8a8a;
+  font-size: 0.9rem;
+}
+
+.question-name {
+  flex: 1;
+  font-family: monospace;
+}
+
+.question-type {
+  color: #8a8a8a;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.dns-history {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.dns-result-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dns-question {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #2a2a2b;
+  border-radius: 4px;
+}
+
+.question-time {
+  font-family: monospace;
+  color: #8a8a8a;
+  font-size: 0.9rem;
 }

@@ -1,13 +1,21 @@
-import "./styles.css";
+import { MetaProvider, Title } from "@solidjs/meta";
+import { Suspense } from "solid-js";
+import { Router } from "@solidjs/router";
+import { FileRoutes } from "@solidjs/start/router";
+import "./app.css";
 
 export default function App() {
 
   return (
-    <div class="full-page">
-      <h1 class="creative-name">
-        <span class="light-gray">n</span>
-        <span class="dark-gray">dru</span>
-      </h1>
-    </div>
+    <Router 
+      root={(props) => (
+        <MetaProvider>
+          <Title>ndru</Title>
+          <Suspense>{props.children}</Suspense>
+        </MetaProvider>
+      )}
+    >
+      <FileRoutes />
+    </Router>
   );
 }

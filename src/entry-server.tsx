@@ -1,5 +1,6 @@
 // @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server";
+import "./app.css"
 
 export default createHandler(() => (
   <StartServer
@@ -10,7 +11,7 @@ export default createHandler(() => (
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
           {assets}
         </head>
