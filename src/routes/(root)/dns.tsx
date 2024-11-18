@@ -135,6 +135,7 @@ export default function Dns() {
                             placeholder="domain name"
                             required
                             class="dns-input"
+                            inputMode='url'
                         />
                         <select
                             value={recordType()}
