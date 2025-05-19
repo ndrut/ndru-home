@@ -12,7 +12,6 @@ export default createHandler(() => (
             <Meta charset="utf-8" />
             <Meta name="viewport" content="width=device-width, initial-scale=1" />
             <Title>n dru</Title>
-            <Link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192" />
             <Link rel="preload" href="/fonts/audiowide-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
             {assets}
           </head>
