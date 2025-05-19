@@ -1,25 +1,29 @@
 // @refresh reload
+import { MetaProvider, Title, Link, Meta } from "@solidjs/meta"
 import { createHandler, StartServer } from "@solidjs/start/server";
 import "./app.css"
 
 export default createHandler(() => (
   <StartServer
     document={({ assets, children, scripts }) => (
-      <html lang="en">
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
-          {assets}
-        </head>
-        <body>
-          <div id="app">{children}</div>
-          {scripts}
-        </body>
-      </html>
+      <MetaProvider>
+        <html lang="en">
+          <head>
+            <Meta charset="utf-8" />
+            <Meta name="viewport" content="width=device-width, initial-scale=1" />
+            <Title>n dru</Title>
+            <Link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192" />
+            <Link rel="preload" href="/fonts/audiowide-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+            {assets}
+          </head>
+          <body>
+            <div id="app">{children}</div>
+            {scripts}
+          </body>
+        </html>
+      </MetaProvider>
     )}
   />
-));
+), {
+  mode: "stream"
+});
