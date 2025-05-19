@@ -23,7 +23,7 @@ env:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ["X64", "ARM64"]
     permissions:
       contents: read
       packages: write
