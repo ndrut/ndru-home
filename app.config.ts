@@ -1,7 +1,17 @@
 import { defineConfig } from "@solidjs/start/config";
+import { solidStartSiteMapPlugin } from 'solid-start-sitemap';
 
 export default defineConfig(
     {
+        vite: {
+          plugins: [
+            solidStartSiteMapPlugin({
+              hostname: 'https://ndru.io',
+              limit: 5000,
+            }),
+          ],
+        },
+        ssr: true,
         server: { 
             compressPublicAssets: true,
             prerender: {
