@@ -3,3 +3,5 @@ Disallow: /auth/*
 Disallow: /admin/*
 Disallow: /cgi-*/*
 Allow: *
+
+Sitemap: /sitemap.xml
