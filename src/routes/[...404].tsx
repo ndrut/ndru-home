@@ -1,6 +1,9 @@
+import { HttpStatusCode }  from "@solidjs/start"
+
 export default function NotFound() {
   return (
     <div class="full-page">
+        <HttpStatusCode code={404} />
         <div class="row ">
           <h1 class="text-2xl font-bold mb-4">404 - Page Not Found</h1>
         </div>
