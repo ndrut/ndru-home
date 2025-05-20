@@ -1,4 +1,5 @@
-# ndru-home
+
+!!! warning [actions](.github/workflows/docker-publish.yml)
 
 home page web app
 
@@ -24,11 +25,29 @@ home page web app
 └── tsconfig.json
 ```
 
+## dns
+
+DNS Lookup Tool utilizing the DNS-over-HTTPS endpoint provided by CloudFlare
+
+ - [ ] perform lookups against the common types for a given domain
+   - [ ] A
+   - [ ] AAAA
+   - [ ] CNAME
+ - [ ] based on the results, recurse automatically
+   - [ ] 
+- [ ]  dns -> dns/domain.com
+                  /TYPE:domain
+
+
 ## todo
 
- - [ ]  `hydrate` in entry-client?
- - [ ]  add multi-platform build and compose
-
+ - [ ] `hydrate` in entry-client?
+ - [X] add multi-platform build and compose
+ - [X] add sitemap
+ - [X] return 404 status code
+ - [ ] add meta descriptions
+ - [ ] add meta:og tags
+ - [ ] 
 
 ## Setup
 
